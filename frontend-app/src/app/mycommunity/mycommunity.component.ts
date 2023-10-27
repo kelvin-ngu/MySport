@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, resolveForwardRef } from '@angular/core';
 import { PostComponent } from '../post/post.component';
 import { PostDetail } from '../postdetail';
 import { PostgatheringService } from '../postgathering.service';
@@ -14,9 +14,11 @@ import { PostgatheringService } from '../postgathering.service';
 export class MycommunityComponent {
   postgatheringService: PostgatheringService  = inject(PostgatheringService);
   postDetail!: PostDetail;
-  constructor() {
-    this.postgatheringService.getPost().then((postDetail: PostDetail) => {
-      this.postDetail = postDetail;
+  constructor(){
+    this.postgatheringService.getPost().subscribe((response) => {
+      console.log(response);
     });
+
   }
 }
+

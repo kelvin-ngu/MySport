@@ -9,6 +9,8 @@ import { PostComponent } from './post/post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MycommunityComponent } from './mycommunity/mycommunity.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +22,7 @@ import { MycommunityComponent } from './mycommunity/mycommunity.component';
       {path: 'mycommunity', component: MycommunityComponent}
     ]),
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

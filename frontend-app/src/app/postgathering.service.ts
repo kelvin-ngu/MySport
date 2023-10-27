@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { PostDetail } from './postdetail';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostgatheringService {
   postDetail!: PostDetail;
+  httpClient: HttpClient  = inject(HttpClient);
+  url = 'http://localhost:8000/forum/post/5153ce07-5576-4871-ad75-6578ba537a07/';
   constructor() {
   }
-  url = 'http://localhost:3000/getposts';
-
-  async getPost(): Promise<PostDetail> {
-    const data = await fetch(this.url);
-    return await data.json() ?? [];
+  getPost() {
+    return this.httpClient.get(this.url);
   }
-
 }
