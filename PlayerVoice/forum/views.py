@@ -1,3 +1,40 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import action
 
-# Create your views here.
+from .models import Post, Like, Comment
+from .serializers import (
+    PostSerializer, CreatePostSerializer,
+    LikeSerializer, CreateLikeSerializer,
+    CommentSerializer, CreateCommentSerializer
+)
+
+class PostViewSet(ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    pagination_class = None
+
+    def retrieve(self, request, *args, **kwargs):
+        post = self.get_object()
+        like_amount = len(post.like_by_post.all())
+        comments = post.comment_by_post.all()
+        data = {
+            'post': PostSerializer(post).data,
+            'likes': like_amount,
+            'comments': CommentSerializer(comments, many=True).data
+        }
+        return Response(data, status=status.HTTP_200_OK)
+    
+    def list(self, request, *args, **kwargs):
+        posts = self.get_queryset()
+        serializer = PostSerializer(posts, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = CreatePostSerializer(data=data)
+        serializer.is_valid()
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

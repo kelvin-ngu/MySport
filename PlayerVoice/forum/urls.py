@@ -5,8 +5,8 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 router = DefaultRouter()
-# router.register('player', views.PlayerViewSet, basename='player')
+router.register('post', views.PostViewSet, basename='post')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('post/', include(router.urls)),
 ]
