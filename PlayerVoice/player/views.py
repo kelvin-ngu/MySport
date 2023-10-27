@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.decorators import action
 
 from .models import Player
-from .serializers import PlayerSerializer
+from .serializers import PlayerSerializer, CreatePlayerSerializer
 
 # Create your views here.
 class PlayerViewSet(ModelViewSet):
@@ -15,5 +15,17 @@ class PlayerViewSet(ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         player = self.get_object()
-        serializer_data = self.get_serializer()
-        return Response(serializer_data, status=status.HTTP_200_OK)
+        serializer = player.get_serializer()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def list(self, request, *args, **kwargs):
+        players = self.get_queryset()
+        serializer = PlayerSerializer(players, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        serializer = CreatePlayerSerializer(data=data)
+        serializer.is_valid()
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

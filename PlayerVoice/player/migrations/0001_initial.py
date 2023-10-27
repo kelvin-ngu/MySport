@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
             name='Player',
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('username', models.CharField(max_length=20, default=None, null=True)),                
                 ('birth_year', models.DateField()),
                 ('club', models.CharField(max_length=50)),
                 ('role', models.CharField(blank=True, choices=[('STRIKER', 'STRIKER'), ('GOALKEEPER', 'GOALKEEPER'), ('DEFENDER', 'DEFENDER')], max_length=15, null=True)),
@@ -32,6 +33,7 @@ class Migration(migrations.Migration):
             name='HistoricalPlayer',
             fields=[
                 ('id', models.UUIDField(db_index=True, default=uuid.uuid4, editable=False)),
+                ('username', models.CharField(max_length=20, default=None, null=True)),                
                 ('birth_year', models.DateField()),
                 ('club', models.CharField(max_length=50)),
                 ('role', models.CharField(blank=True, choices=[('STRIKER', 'STRIKER'), ('GOALKEEPER', 'GOALKEEPER'), ('DEFENDER', 'DEFENDER')], max_length=15, null=True)),

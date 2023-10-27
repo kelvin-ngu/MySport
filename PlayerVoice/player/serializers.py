@@ -5,8 +5,21 @@ from .models import Player
 
 class PlayerSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField()
-    age = serializers.IntegerField()
+    username = serializers.CharField()
+    birth_year = serializers.DateField()
     club = serializers.CharField()
+    role = serializers.CharField()
 
     class Meta:
         model = Player
+        fields = '__all__'
+
+class CreatePlayerSerializer(serializers.ModelSerializer):
+    username = serializers.CharField()
+    birth_year = serializers.DateField()
+    club = serializers.CharField()
+    role = serializers.CharField()
+
+    class Meta:
+        model = Player
+        fields = '__all__'

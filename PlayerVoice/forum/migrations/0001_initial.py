@@ -18,20 +18,20 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Journal',
+            name='Post',
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('title', models.CharField(max_length=100)),
                 ('description', models.TextField(blank=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='journal_by_player', to='player.player')),
+                ('author', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='post_by_player', to='player.player')),
             ],
             options={
                 'ordering': ['created_at'],
             },
         ),
         migrations.CreateModel(
-            name='HistoricalJournal',
+            name='HistoricalPost',
             fields=[
                 ('id', models.UUIDField(db_index=True, default=uuid.uuid4, editable=False)),
                 ('title', models.CharField(max_length=100)),
@@ -45,8 +45,8 @@ class Migration(migrations.Migration):
                 ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'verbose_name': 'historical journal',
-                'verbose_name_plural': 'historical journals',
+                'verbose_name': 'historical post',
+                'verbose_name_plural': 'historical posts',
                 'ordering': ('-history_date', '-history_id'),
                 'get_latest_by': ('history_date', 'history_id'),
             },

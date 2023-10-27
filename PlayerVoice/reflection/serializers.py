@@ -7,3 +7,6 @@ from player.models import Player
 class SelfRatingSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField()
     player = serializers.PrimaryKeyRelatedField(queryset=Player.objects.all())
+
+    class Meta:
+        fields = '__all__'

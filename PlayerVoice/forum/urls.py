@@ -8,5 +8,5 @@ router = DefaultRouter()
 # router.register('player', views.PlayerViewSet, basename='player')
 
 urlpatterns = [
-    path('/', include(router.urls)),
+    path('', include(router.urls)),
 ]
