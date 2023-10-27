@@ -8,6 +8,10 @@ from simple_history.models import HistoricalRecords
 from player.models import Player
 
 # Create your models here.
+
+# class Category(models.TextChoices):
+
+
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     title = models.CharField(max_length=100)
@@ -22,7 +26,6 @@ class Post(models.Model):
     class Meta:
         ordering = ['created_at']
 
-
 class Like(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     post = models.ForeignKey(Post,
@@ -35,7 +38,6 @@ class Like(models.Model):
                                related_name='like_by_player')
     history = HistoricalRecords()
     
-
 class Comment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     comment = models.TextField()

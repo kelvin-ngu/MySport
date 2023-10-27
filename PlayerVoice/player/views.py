@@ -24,8 +24,7 @@ class PlayerViewSet(ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def create(self, request, *args, **kwargs):
-        data = request.data
-        serializer = CreatePlayerSerializer(data=data)
+        serializer = CreatePlayerSerializer(data=request.data)
         serializer.is_valid()
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

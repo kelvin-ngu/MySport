@@ -20,7 +20,6 @@ class CreatePostSerializer(serializers.ModelSerializer):
     title = serializers.CharField()
     description = serializers.CharField()
     author = serializers.PrimaryKeyRelatedField(queryset=Player.objects.all())
-    created_at = serializers.DateTimeField()
 
     class Meta:
         model = Post
