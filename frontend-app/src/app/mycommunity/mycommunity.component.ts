@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PostComponent } from '../post/post.component';
 import { PostDetail } from '../postdetail';
+import { PostgatheringService } from '../postgathering.service';
 
 @Component({
   selector: 'app-mycommunity',
@@ -9,25 +10,13 @@ import { PostDetail } from '../postdetail';
   standalone: true,
   imports: [PostComponent]
 })
+
 export class MycommunityComponent {
-  // postDetailList: PostDetail[] = [
-  //   {
-  //     id: 0,
-  //     name: "Bua",
-  //     content: "I don't know what I am doing",
-  //     likeCount: 5
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "Haz",
-  //     content: "I don't know what I am doing",
-  //     likeCount: 5
-  //   }
-  // ];
-  postDetail: PostDetail = {
-    id: 1,
-    name: "Haz",
-    content: "I don't know what I am doing",
-    likeCount: 5
+  postgatheringService: PostgatheringService  = inject(PostgatheringService);
+  postDetail!: PostDetail;
+  constructor() {
+    this.postgatheringService.getPost().then((postDetail: PostDetail) => {
+      this.postDetail = postDetail;
+    });
   }
 }
