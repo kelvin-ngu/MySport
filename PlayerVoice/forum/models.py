@@ -1,7 +1,8 @@
 from uuid import uuid4
-# from simple_history.models import HistoricalRecords
+from simple_history.models import HistoricalRecords
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from simple_history.models import HistoricalRecords
 
@@ -10,6 +11,9 @@ from player.models import Player
 # Create your models here.
 
 # class Category(models.TextChoices):
+#     STRIKER = 'STRIKER', _('STRIKER')
+#     GOALKEEPER = 'GOALKEEPER', _('GOALKEEPER')
+#     DEFENDER = 'DEFENDER', _('DEFENDER')
 
 
 class Post(models.Model):

@@ -8,7 +8,6 @@ from simple_history.models import HistoricalRecords
 
 from player.models import Player
 
-# Create your models here.
 class MentalHealth(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     player = models.ForeignKey(Player,
