@@ -6,14 +6,10 @@ import { HomeComponent } from './home/home.component';
 
 import { RouterModule } from '@angular/router';
 import { MygameComponent } from './mygame/mygame.component';
-import { JournalEntryComponent } from './journal-entry/journal-entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    MygameComponent,
-    JournalEntryComponent
   ],
   imports: [
     BrowserModule,

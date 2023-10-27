@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { PostDetail } from '../postdetail';
 
 @Component({
   selector: 'app-journal-entry',
@@ -9,6 +8,5 @@ import { PostDetail } from '../postdetail';
 })
 
 export class JournalEntryComponent {
-  @Input() entryDetail!: PostDetail;
 }
 
