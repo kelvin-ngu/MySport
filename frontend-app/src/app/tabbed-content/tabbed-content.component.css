@@ -1,0 +1,29 @@
+/* tabbed-content.component.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+  }
+  
+  .tab {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  .tab.active {
+    border-color: #007bff; /* Change to your desired active tab color */
+  }
+  
+  .content {
+    /* Your content styles... */
+  }
+  
