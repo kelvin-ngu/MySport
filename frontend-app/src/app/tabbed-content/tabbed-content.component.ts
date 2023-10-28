@@ -7,6 +7,7 @@ import { MentalHealthComponent } from '../mental-health/mental-health.component'
 import { CommonModule } from '@angular/common';
 import { PostgatheringService } from '../postgathering.service';
 import { Postlist } from '../postlist';
+import { CreatepostComponent } from '../createpost/createpost.component';
 
 @Component({
   selector: 'app-tabbed-content',
@@ -16,6 +17,7 @@ import { Postlist } from '../postlist';
     PhysicalPerformanceComponent,
     PlayerVoiceComponent,
     MentalHealthComponent,
+    CreatepostComponent,
     CommonModule],
   standalone: true
 })

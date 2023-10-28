@@ -18,15 +18,19 @@
   
     <div class="content">
       <div *ngIf="selectedTab === 'physicalCare'">
+        <app-createpost></app-createpost>
         <app-physical-care [postList] = "postList"></app-physical-care>
       </div>
       <div *ngIf="selectedTab === 'mentalHealth'">
+        <app-createpost></app-createpost>
         <app-mental-health [postList] = "postList"></app-mental-health>
       </div>
       <div *ngIf="selectedTab === 'playerVoice'">
+        <app-createpost></app-createpost>
         <app-player-voice [postList] = "postList"></app-player-voice>
       </div>
       <div *ngIf="selectedTab === 'physicalPerformance'">
+        <app-createpost></app-createpost>
         <app-physical-performance [postList] = "postList"></app-physical-performance>
       </div>
     </div>
