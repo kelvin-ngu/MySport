@@ -9,9 +9,9 @@
             <label for="options">What did you get up to today?</label>
             <select #get_up class="form-control" id="options" placeholder="Choose...">
                 <option value="option0">Choose...</option>
-                <option value="option1">Game</option>
-                <option value="option2">Training</option>
-                <option value="option3">Rest Day</option>
+                <option value="Game">Game</option>
+                <option value="Training">Training</option>
+                <option value="Rest Day">Rest Day</option>
             </select>
         </div>
 
@@ -27,12 +27,12 @@
 
         <div class="form-group">
             <label for="options">Make Public?</label>
-            <select #get_up class="form-control" id="options" placeholder="Choose...">
-                <option value="option0">Public</option>
-                <option value="option1">Private</option>
+            <select #public class="form-control" id="options" placeholder="Choose...">
+                <option value= 1 >Public</option>
+                <option value= 0 >Private</option>
             </select>
         </div>
 
-        <button type="button" class="btn btn-info" onclick="postEntry(title.value, get_up.value, feelings.value, entry.value)">Submit</button>
+        <button type="button" class="btn btn-info" (click) = "postEntry(title.value, get_up.value, feelings.value, entry.value, public.value)">Submit</button>
     </form>
 </div>

@@ -11,14 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class EntryboxComponent {
   postEntryService: PostentryService = inject(PostentryService);
-  postEntry(title: string, get_up: string, feelings:string, entry: string) {
+  postEntry(title: string, get_up: string, feelings:string, entry: string, restriction:string) {
     const jsonEntry = <JSON><unknown>{
       player: "c0b4902b-4007-4cfc-838c-07fa4820cc15",
-      public: bool,
+      public: restriction,
       title: title,
       get_up: get_up,
       feelings: feelings,
-      entry: entry,
+      entry: entry
     }
     this.postEntryService.postEntry(jsonEntry).subscribe((response) => {
       console.log(response);
