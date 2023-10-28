@@ -21,6 +21,7 @@ To get a list of all posts
     [
         {
             id: uuid, (post id)
+            category: str,
             title: str,
             description: str,
             author: {
@@ -46,6 +47,7 @@ To get a specific Post using ID
 ```
     {
         id: uuid, (post id)
+        category: str,
         title: str,
         description: str,
         author: {
@@ -67,12 +69,16 @@ To create post
 * Route: `post/`
 * Method: POST
 * Body (form data):
-
+    * category: str
+    * title: str
+    * description: str
+    * author: uuid
 
 * Return:
 ```
     {
         id: uuid, (post id)
+        category: str,
         title: str,
         description: str,
         author: {

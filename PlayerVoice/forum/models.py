@@ -10,14 +10,18 @@ from player.models import Player
 
 # Create your models here.
 
-# class Category(models.TextChoices):
-#     STRIKER = 'STRIKER', _('STRIKER')
-#     GOALKEEPER = 'GOALKEEPER', _('GOALKEEPER')
-#     DEFENDER = 'DEFENDER', _('DEFENDER')
+class Category(models.TextChoices):
+    PHYSICAL_CARE = 'PHYSICAL_CARE', _('PHYSICAL_CARE')
+    MENTAL_HEALTH = 'MENTAL_HEALTH', _('MENTAL_HEALTH')
+    PLAYER_VOICE = 'PLAYER_VOICE', _('PLAYER_VOICE')
+    PHYSICAL_PERFORMANCE = 'PHYSICAL_PERFORMANCE', _('PHYSICAL_PERFORMANCE')
 
 
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    category = models.CharField(max_length=50,
+                                choices=Category.choices,
+                                null=True)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     author = models.ForeignKey(Player,

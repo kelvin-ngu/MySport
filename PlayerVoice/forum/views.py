@@ -33,11 +33,12 @@ class PostViewSet(ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def create(self, request, *args, **kwargs):
-        serializer = CreatePostSerializer(data={
-            'title': request.data.get('title'),
-            'description': request.data.get('description'),
-            'author': request.user.id
-        })
+        serializer = CreatePostSerializer(data=request.data)#{
+            # 'category': request.data.get('category'),
+            # 'title': request.data.get('title'),
+            # 'description': request.data.get('description'),
+            # 'author': request.data.get
+        #})
         serializer.is_valid()
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
