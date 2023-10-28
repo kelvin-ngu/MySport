@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class GetFormService {
   postDetail!: PostDetail;
   httpClient: HttpClient  = inject(HttpClient);
-  url = 'http://localhost:8000/journal/';
+  url = 'http://localhost:8000/reflection/journal/';
   constructor() {
   }
   getForms() {

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PostentryService {
   httpClient: HttpClient  = inject(HttpClient);
-  url = 'http://localhost:8000/forum/post/';
+  url = 'http://localhost:8000/reflection/journal/';
   constructor() { }
 
   postEntry(entry: JSON): Observable<any> {
