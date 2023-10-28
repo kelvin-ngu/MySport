@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit-Style Post</title>
+  <!-- Add Bootstrap CSS link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <!-- Post Title -->
+        <h2 class="post-name">{{postDetail.author }}</h2>
+
+        <!-- Post Content -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <p class ="post-content">{{postDetail.title}}</p>
+          </div>
+        </div>
+
+        <!-- Upvote/Downvote Buttons -->
+        <div class="text-center">
+          <button class="btn btn-success mr-2"><i class="fa fa-arrow-up"></i> Upvote</button>
+          <button class="btn btn-danger"><i class="fa fa-arrow-down"></i> Downvote</button>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="card mt-4">
+          <div class="card-header">Comments</div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Comment 1</li>
+              <li class="list-group-item">Comment 2</li>
+              <li class="list-group-item">Comment 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Bootstrap and Font Awesome JS scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -28,7 +28,10 @@ import { PhysicalPerformanceComponent } from './physical-performance/physical-pe
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'mycommunity', component: CommunityComponent}
+
     ]),
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
