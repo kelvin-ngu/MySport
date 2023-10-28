@@ -2,7 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntryComponent } from '../entry/entry.component';
 import {Form} from '../form'
-import { GetFormService } from '../get-forms.service';
+import { GetFormsService } from '../get-forms.service';
 import { FormList } from '../formList';
 
 @Component({
@@ -14,7 +14,6 @@ import { FormList } from '../formList';
 })
 
 export class JournalEntryComponent {
-  
   getFormService: GetFormService = inject(GetFormService)
   formList!: FormList
   constructor(private router : Router) {
