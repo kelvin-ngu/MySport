@@ -16,9 +16,7 @@ import { EntryComponent } from './entry/entry.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AppComponent,
-    EntryComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
