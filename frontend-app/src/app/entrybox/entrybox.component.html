@@ -6,24 +6,27 @@
         </div>
 
         <div class="form-group">
-            <label for="options">Select an option</label>
-            <select class="form-control" id="options">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+            <label for="options">What did you get up to today?</label>
+            <select class="form-control" id="options" placeholder="Choose...">
+                <option value="option0">Choose...</option>
+                <option value="option1">Game</option>
+                <option value="option2">Training</option>
+                <option value="option3">Rest Day</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="feelings">Feelings</label>
-            <textarea class="form-control" id="feelings" rows="4" placeholder="Enter your feelings"></textarea>
+            <label for="feelings">Feelings: </label>
+            <input type="text" class="form-control" id="entry" placeholder="How have you been feeling today?">
         </div>
 
         <div class="form-group">
-            <label for="entry">Entry</label>
-            <input type="text" class="form-control" id="entry" placeholder="Enter an entry">
+            <label for="entry">Entry: </label>
+            <textarea class="form-control" id="feelings" rows="4" placeholder=" "></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        <button type="submit" class="btn btn-info" href="/mygame">Submit</button>
     </form>
 </div>
