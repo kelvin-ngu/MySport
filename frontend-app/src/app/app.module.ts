@@ -16,8 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    NewEntryComponent,
-    EntryboxComponent,
     AppComponent
   ],
   imports: [
@@ -25,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'mygame', component: MygameComponent},
-      {path: 'mycommunity', component: CommunityComponent}
+      {path: 'mycommunity', component: CommunityComponent},
+      {path: 'newentry', component: NewEntryComponent}
+
     ]),
     HttpClientModule,
     BrowserAnimationsModule
