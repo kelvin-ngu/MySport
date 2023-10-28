@@ -1,4 +1,4 @@
 import { PostDetail } from "./postdetail";
-export interface Postlist {
+export interface Postlist extends Iterable<PostDetail> {
     postlist: Array<PostDetail>;
 }

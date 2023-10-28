@@ -18,16 +18,16 @@
   
     <div class="content">
       <div *ngIf="selectedTab === 'physicalCare'">
-        <app-physical-care></app-physical-care>
+        <app-physical-care [postList] = "postList"></app-physical-care>
       </div>
       <div *ngIf="selectedTab === 'mentalHealth'">
-        <app-mental-health></app-mental-health>
+        <app-mental-health [postList] = "postList"></app-mental-health>
       </div>
       <div *ngIf="selectedTab === 'playerVoice'">
-        <app-player-voice></app-player-voice>
+        <app-player-voice [postList] = "postList"></app-player-voice>
       </div>
       <div *ngIf="selectedTab === 'physicalPerformance'">
-        <app-physical-performance></app-physical-performance>
+        <app-physical-performance [postList] = "postList"></app-physical-performance>
       </div>
     </div>
   </div>  
