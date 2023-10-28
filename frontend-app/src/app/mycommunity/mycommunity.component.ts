@@ -16,7 +16,10 @@ export class MycommunityComponent {
   postDetail!: PostDetail;
   constructor(){
     this.postgatheringService.getPost().subscribe((response) => {
-      console.log(response);
+      const jsonString = JSON.stringify(response);
+      const jsonObject = JSON.parse(jsonString);
+      this.postDetail = jsonObject.post;
+      console.log(jsonObject)
     });
 
   }
