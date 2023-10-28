@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { CommunityComponent } from './community/community.component';
 
 import { RouterModule } from '@angular/router';
-import { CommunityComponent } from './community/community.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
