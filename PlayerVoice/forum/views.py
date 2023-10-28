@@ -11,6 +11,8 @@ from .serializers import (
     CommentSerializer, CreateCommentSerializer
 )
 
+from reflection.views import is_content_safe
+
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
@@ -42,7 +44,38 @@ class PostViewSet(ModelViewSet):
         return Response(data, status=status.HTTP_200_OK)
     
     def create(self, request, *args, **kwargs):
+        if not is_content_safe(request.data.get('title')) or not is_content_safe(request.data.get('description')):
+            return Response({
+                'error': 'This is a friendly community, please edit your content'
+            }, status=status.HTTP_400_BAD_REQUEST)
         serializer = CreatePostSerializer(data=request.data)
+        serializer.is_valid()
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    @action(detail=True, methods=['POST'])
+    def comment(self, request, *args, **kwargs):
+        post = self.get_object()
+        if not is_content_safe(request.data.get('comment')):
+            return Response({
+                'error': 'This is a friendly community, please edit your content'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        serializer = CreateCommentSerializer(data={
+            'comment': request.data.get('comment'),
+            'post': post.id,
+            'author': request.data.get('author'),
+        })
+        serializer.is_valid()
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    @action(detail=True, methods=['POST'])
+    def like(self, request, *args, **kwargs):
+        post = self.get_object()
+        serializer = CreateLikeSerializer(data={
+            'post': post.id,
+            'author': request.data.get('author')
+        })
         serializer.is_valid()
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
