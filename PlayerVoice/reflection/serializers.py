@@ -34,7 +34,9 @@ class JournalSerializer(serializers.Serializer):
     player = PlayerSerializer()
     public = serializers.BooleanField()
     title = serializers.CharField()
-    description = serializers.CharField()
+    get_up = serializers.CharField()
+    feelings = serializers.CharField()
+    entry = serializers.CharField()
     created_at = serializers.DateTimeField()
 
     class Meta:
@@ -46,11 +48,13 @@ class CreateJournalSerializer(serializers.Serializer):
     player = serializers.PrimaryKeyRelatedField(queryset=Player.objects.all())
     public = serializers.BooleanField()
     title = serializers.CharField()
-    description = serializers.CharField()
+    get_up = serializers.CharField()
+    feelings = serializers.CharField()
+    entry = serializers.CharField()
 
     class Meta:
         model = Journal
-        fields = ['player', 'public', 'title', 'description']
+        fields = ['player', 'public', 'title', 'get_up', 'feelings', 'entry']
     
     
     ## TODO: 
