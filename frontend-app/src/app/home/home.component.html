@@ -36,11 +36,26 @@
       color: inherit; /* Use the text color of the parent element */
     }
 
+    .unstyled-button:hover {
+      color: rgb(76, 158, 165);
+      text-decoration: underline;
+    }
+
+    .pageLinks {
+      color: rgb(76, 158, 165);
+      outline: solid 1px rgb(76, 158, 165);
+      transition: background-color 0.5s ease-in-out, color 1s ease;
+    }
+
+    .pageLinks:hover {
+      color: #fff;
+      background-color: rgb(76, 158, 165);
+    }
+
   </style>
 
   <header class="bg-dark text-white">
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <!-- <a class="navbar-brand" routerLink="/">MySport</a> -->
       <button class="unstyled-button" (click)="navigateTo('/')">MySport</button>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,11 +63,9 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <!-- <a class="nav-link" routerLink="/mygame">MyGame</a> -->
             <button class="unstyled-button" (click)="navigateTo('/mygame')">MyGame</button>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" routerLink="/mycommunity">MyCommunity</a> -->
             <button class="unstyled-button" (click)="navigateTo('/mycommunity')">MyCommunity</button>
           </li>
         </ul>
@@ -67,10 +80,10 @@
         <p class="lead">Here to help you both on and off the pitch.</p>
         <div class="row">
           <div class="col-md-6">
-            <button class="btn btn-lg btn-outline-success" (click)="navigateTo('/mygame')">MyGame</button>
+            <button class="btn btn-lg btn-outline pageLinks" (click)="navigateTo('/mygame')">MyGame</button>
           </div>
           <div class="col-md-6">
-            <button class="btn btn-lg btn-outline-success" (click)="navigateTo('/mycommunity')">MyCommunity</button>
+            <button class="btn btn-lg btn-outline pageLinks" (click)="navigateTo('/mycommunity')">MyCommunity</button>
           </div>
         </div>
       </div>
