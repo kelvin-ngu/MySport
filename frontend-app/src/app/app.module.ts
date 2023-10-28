@@ -12,11 +12,13 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
 import { EntryboxComponent } from './entrybox/entrybox.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EntryComponent } from './entry/entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppComponent
+    AppComponent,
+    EntryComponent
   ],
   imports: [
     BrowserModule,
