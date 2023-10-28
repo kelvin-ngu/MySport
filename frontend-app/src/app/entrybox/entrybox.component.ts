@@ -1,10 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { PostentryService } from '../postentry.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-entrybox',
   templateUrl: './entrybox.component.html',
   styleUrls: ['./entrybox.component.css'],
+  imports: [CommonModule],
   standalone: true
 })
 export class EntryboxComponent {

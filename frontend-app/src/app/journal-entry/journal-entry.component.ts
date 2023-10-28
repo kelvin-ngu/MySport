@@ -1,8 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntryComponent } from '../entry/entry.component';
-import {Form} from '../form'
-import { GetFormsService } from '../get-forms.service';
+import { GetFormService } from '../get-forms.service';
 import { FormList } from '../formList';
 
 @Component({

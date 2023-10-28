@@ -17,7 +17,9 @@
     </div>
   
     <div class="content">
-      <div *ngIf="selectedTab === 'physicalCare'">
+      <app-createpost></app-createpost>
+      <app-physical-care [postList] = "postList"></app-physical-care>
+      <!-- <div *ngIf="selectedTab === 'physicalCare'">
         <app-createpost></app-createpost>
         <app-physical-care [postList] = "postList"></app-physical-care>
       </div>
@@ -32,6 +34,6 @@
       <div *ngIf="selectedTab === 'physicalPerformance'">
         <app-createpost></app-createpost>
         <app-physical-performance [postList] = "postList"></app-physical-performance>
-      </div>
+      </div> -->
     </div>
   </div>  
