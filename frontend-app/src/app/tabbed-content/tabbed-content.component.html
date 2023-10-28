@@ -1,0 +1,33 @@
+<!-- tabbed-content.component.html -->
+<!-- tabbed-content.component.html -->
+<div class="container">
+    <div class="tabs">
+      <div (click)="selectTab('physicalCare')" class="tab" [class.active]="selectedTab === 'physicalCare'">
+        <span>Physical Care</span>
+      </div>
+      <div (click)="selectTab('mentalHealth')" class="tab" [class.active]="selectedTab === 'mentalHealth'">
+        <span>Mental Health</span>
+      </div>
+      <div (click)="selectTab('playerVoice')" class="tab" [class.active]="selectedTab === 'playerVoice'">
+        <span>Player Voice</span>
+      </div>
+      <div (click)="selectTab('physicalPerformance')" class="tab" [class.active]="selectedTab === 'physicalPerformance'">
+        <span>Physical Performance</span>
+      </div>
+    </div>
+  
+    <div class="content">
+      <div *ngIf="selectedTab === 'physicalCare'">
+        <app-physical-care></app-physical-care>
+      </div>
+      <div *ngIf="selectedTab === 'mentalHealth'">
+        <app-mental-health></app-mental-health>
+      </div>
+      <div *ngIf="selectedTab === 'playerVoice'">
+        <app-player-voice></app-player-voice>
+      </div>
+      <div *ngIf="selectedTab === 'physicalPerformance'">
+        <app-physical-performance></app-physical-performance>
+      </div>
+    </div>
+  </div>  

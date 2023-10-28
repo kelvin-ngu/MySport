@@ -12,7 +12,7 @@ class PlayerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Player
-        fields = '__all__'
+        fields = ['id', 'username', 'birth_year', 'club', 'role']
 
 class CreatePlayerSerializer(serializers.ModelSerializer):
     username = serializers.CharField()

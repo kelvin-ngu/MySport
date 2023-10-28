@@ -5,21 +5,30 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { RouterModule } from '@angular/router';
-import { PostComponent } from './post/post.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MycommunityComponent } from './mycommunity/mycommunity.component';
-
-import { HttpClientModule } from '@angular/common/http';
+import { CommunityComponent } from './community/community.component';
+import { TabbedContentComponent } from './tabbed-content/tabbed-content.component';
+import { PhysicalCareComponent } from './physical-care/physical-care.component';
+import { MentalHealthComponent } from './mental-health/mental-health.component';
+import { PlayerVoiceComponent } from './player-voice/player-voice.component';
+import { PhysicalPerformanceComponent } from './physical-performance/physical-performance.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    CommunityComponent,
+    TabbedContentComponent,
+    PhysicalCareComponent,
+    MentalHealthComponent,
+    PlayerVoiceComponent,
+    PhysicalPerformanceComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: 'mycommunity', component: MycommunityComponent}
+      {path: 'mycommunity', component: CommunityComponent}
+
     ]),
     BrowserAnimationsModule,
     HttpClientModule
