@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class PostgatheringService {
   postDetail!: PostDetail;
   httpClient: HttpClient  = inject(HttpClient);
-  url = 'http://localhost:8000/forum/post/5153ce07-5576-4871-ad75-6578ba537a07/';
+  url = 'http://localhost:8000/forum/post/';
   constructor() {
   }
   getPost() {
