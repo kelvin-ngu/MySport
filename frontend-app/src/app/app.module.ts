@@ -15,8 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    NewEntryComponent,
-    EntryboxComponent,
     AppComponent
   ],
   imports: [
@@ -24,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'mygame', component: MygameComponent},
-      {path: 'mycommunity', component: CommunityComponent}
+      {path: 'mycommunity', component: CommunityComponent},
+      {path: 'newentry', component: NewEntryComponent}
+
     ]),
     HttpClientModule
   ],
