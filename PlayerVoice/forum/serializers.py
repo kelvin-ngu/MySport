@@ -86,6 +86,7 @@ from player.serializers import PlayerSerializer
 
 class PostSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField()
+    category = serializers.CharField()
     title = serializers.CharField()
     description = serializers.CharField()
     author = PlayerSerializer()
@@ -96,6 +97,7 @@ class PostSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CreatePostSerializer(serializers.ModelSerializer):
+    category = serializers.CharField()
     title = serializers.CharField()
     description = serializers.CharField()
     author = serializers.PrimaryKeyRelatedField(queryset=Player.objects.all())
