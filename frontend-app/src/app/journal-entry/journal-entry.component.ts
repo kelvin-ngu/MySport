@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetFormsService } from '../get-forms.service';
+import { FormList } from '../formList';
 
 @Component({
   selector: 'app-journal-entry',
@@ -9,9 +11,13 @@ import { Router } from '@angular/router';
 })
 
 export class JournalEntryComponent {
-  constructor(private router : Router) {}
-
-  navigateTo(route: string) {
-    this.router.navigate([route]);
+  getFormservice: GetFormsService = inject(GetFormsService);
+  formList!: FormList;
+  constructor(private router : Router) {
+    this.getFormservice.getForm().subscribe((response: any) => {
+      const jsonString = JSON.stringify(response);
+      this.formList = JSON.parse(jsonString);
+      console.log(this.formList);
+    });
   }
 }
