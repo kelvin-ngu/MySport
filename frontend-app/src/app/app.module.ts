@@ -6,18 +6,22 @@ import { HomeComponent } from './home/home.component';
 
 import { RouterModule } from '@angular/router';
 import { CommunityComponent } from './community/community.component';
-import { CircleMenuComponent } from './circle-menu/circle-menu.component';
-import { Component1Component } from './component1/component1.component';
-import { Component2Component } from './component2/component2.component';
+import { TabbedContentComponent } from './tabbed-content/tabbed-content.component';
+import { PhysicalCareComponent } from './physical-care/physical-care.component';
+import { MentalHealthComponent } from './mental-health/mental-health.component';
+import { PlayerVoiceComponent } from './player-voice/player-voice.component';
+import { PhysicalPerformanceComponent } from './physical-performance/physical-performance.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CommunityComponent,
-    CircleMenuComponent,
-    Component1Component,
-    Component2Component,
+    TabbedContentComponent,
+    PhysicalCareComponent,
+    MentalHealthComponent,
+    PlayerVoiceComponent,
+    PhysicalPerformanceComponent,
   ],
   imports: [
     BrowserModule,
