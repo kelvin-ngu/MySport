@@ -32,6 +32,10 @@ class ReflectionViewSet(ModelViewSet):
     
 
 class JournalViewSet(ModelViewSet):
+    queryset = Journal.objects.all()
+    serializer_class = JournalSerializer
+    pagination_class = None
+    
     def retrieve(self, request, *args, **kwargs):
         journal = self.get_object()
         serializer = JournalSerializer(journal)
