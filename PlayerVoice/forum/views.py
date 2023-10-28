@@ -29,8 +29,17 @@ class PostViewSet(ModelViewSet):
     
     def list(self, request, *args, **kwargs):
         posts = self.get_queryset()
-        serializer = PostSerializer(posts, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        data = []
+        for post in posts:
+            like_amount = len(post.like_by_post.all())
+            comments = post.comment_by_post.all()
+            post_data = {
+                'post': PostSerializer(post).data,
+                'likes': like_amount,
+                'comments': CommentSerializer(comments, many=True).data
+            }
+            data.append(post_data)
+        return Response(data, status=status.HTTP_200_OK)
     
     def create(self, request, *args, **kwargs):
         serializer = CreatePostSerializer(data=request.data)#{
