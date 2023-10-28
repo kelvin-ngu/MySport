@@ -29,13 +29,30 @@
       margin-bottom: 10px;
     }
   </style>
+
+  <header class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" routerLink="/">MySport</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/mygame">MyGame</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/mycommunity">MyCommunity</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   
   <div class="container-fluid">
-
-  
     <section class="hero">
       <div class="container text-center">
-        <h1 class="display-4">Welcome to Player Voice</h1>
+        <h1 class="display-4">Welcome to MySport</h1>
         <p class="lead">Here to help you both on and off the pitch.</p>
         <div class="row">
           <div class="col-md-6">
@@ -48,13 +65,3 @@
       </div>
     </section>
   </div>
-  
-    <!-- Add more sections for different content as needed -->
-  
-    <!-- <footer class="bg-dark text-white py-3">
-      <div class="container">
-        <p>&copy; 2023 Your Website</p>
-        <div class="social-icons">
-        </div>
-      </div>
-    </footer> -->

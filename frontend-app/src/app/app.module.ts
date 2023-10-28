@@ -11,6 +11,7 @@ import { MygameComponent } from './mygame/mygame.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { EntryboxComponent } from './entrybox/entrybox.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'mygame', component: MygameComponent},
       {path: 'mycommunity', component: CommunityComponent}
     ]),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
