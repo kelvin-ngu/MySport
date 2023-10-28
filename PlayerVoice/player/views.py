@@ -15,7 +15,7 @@ class PlayerViewSet(ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         player = self.get_object()
-        serializer = player.get_serializer()
+        serializer = PlayerSerializer(player)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def list(self, request, *args, **kwargs):
