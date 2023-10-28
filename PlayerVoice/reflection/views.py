@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
@@ -8,6 +8,13 @@ from .serializers import (
     ReflectionSerializer, CreateReflectionSerializer,
     JournalSerializer, CreateJournalSerializer
 )
+
+
+def is_content_safe(content):
+    sia = SentimentIntensityAnalyzer()
+    threshold = 0.4
+    return sia.polarity_scores(content)['neg'] < threshold
+
 
 class ReflectionViewSet(ModelViewSet):
     queryset = Reflection.objects.all()
@@ -35,7 +42,7 @@ class JournalViewSet(ModelViewSet):
     queryset = Journal.objects.all()
     serializer_class = JournalSerializer
     pagination_class = None
-    
+
     def retrieve(self, request, *args, **kwargs):
         journal = self.get_object()
         serializer = JournalSerializer(journal)
@@ -47,6 +54,10 @@ class JournalViewSet(ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def create(self, request, *args, **kwargs):
+        if not is_content_safe(request.data.get('title')) or not is_content_safe(request.data.get('description')):
+            return Response({
+                'error': 'This is a friendly community, please edit your content'
+            }, status=status.HTTP_400_BAD_REQUEST)
         serializer = CreateJournalSerializer(data=request.data)
         serializer.is_valid()
         serializer.save()

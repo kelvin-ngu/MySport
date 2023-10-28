@@ -27,19 +27,16 @@ class Reflection(models.Model):
 
 class Journal(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    public = models.BooleanField(default=False)
     player = models.ForeignKey(Player,
                                null=True, blank=True,
                                on_delete=models.CASCADE,
                                related_name='journal_by_player')
-    public = models.BooleanField(default=False)
     title = models.CharField(max_length=50)
-    description = models.TextField()
+    get_up = models.TextField(null=True, blank=True)
+    feelings = models.TextField(null=True, blank=True)
+    entry = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['player', 'created_at']
-
-    ## TODO: 
-    # reflection models, viewsets
-    # moderation package
-    # authorisation, login

@@ -1,10 +1,10 @@
-import { Player } from "./player"
+import { Player } from "./player";
 
 export interface Form {
-    id: string,
+    title: string;
     player: Player,
     public: boolean,
-    title: string,
-    description: string,
-    created_at: string
+    feelings: string,
+    entry: string,
+    get_up: string
 }
