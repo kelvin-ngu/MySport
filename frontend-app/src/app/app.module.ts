@@ -17,6 +17,7 @@ import { EntryComponent } from './entry/entry.component';
 @NgModule({
   declarations: [
     AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,6 @@ import { EntryComponent } from './entry/entry.component';
       {path: 'mygame', component: MygameComponent},
       {path: 'mycommunity', component: CommunityComponent},
       {path: 'newentry', component: NewEntryComponent}
-
     ]),
     HttpClientModule,
     BrowserAnimationsModule
