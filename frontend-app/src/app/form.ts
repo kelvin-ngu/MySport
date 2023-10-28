@@ -1,11 +1,10 @@
 import { Player } from "./player";
 
 export interface Form {
-    id: string;
+    title: string;
     player: Player,
 
-    rating: number,
-    match_description: string,
-    comment: string,
-    created_at: string
+    feelings: string,
+    entry: string,
+    get_up: string
 }
