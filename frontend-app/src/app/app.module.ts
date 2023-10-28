@@ -16,7 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'mygame', component: MygameComponent},
       {path: 'mycommunity', component: CommunityComponent},
       {path: 'newentry', component: NewEntryComponent}
-
     ]),
     HttpClientModule,
     BrowserAnimationsModule
