@@ -9,5 +9,5 @@ import { JournalEntryComponent } from '../journal-entry/journal-entry.component'
   imports: [JournalEntryComponent]
 })
 export class MygameComponent {
-
+  
 }
