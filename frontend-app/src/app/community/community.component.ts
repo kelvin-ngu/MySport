@@ -1,6 +1,7 @@
 import { Component, inject, resolveForwardRef } from '@angular/core';
 import { PostComponent } from '../post/post.component';
 import { TabbedContentComponent } from '../tabbed-content/tabbed-content.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-community',
@@ -11,8 +12,9 @@ import { TabbedContentComponent } from '../tabbed-content/tabbed-content.compone
 })
 
 export class CommunityComponent {
+  constructor(private router : Router) {}
 
-  constructor(){
-
+  navigateTo(route: string) {
+    this.router.navigate([route]);
   }
 }
