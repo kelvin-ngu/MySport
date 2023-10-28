@@ -7,5 +7,4 @@ export interface Post {
     description: string;
     id: string;
     title: string;
-    
 }
