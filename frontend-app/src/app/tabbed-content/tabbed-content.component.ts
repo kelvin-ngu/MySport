@@ -31,7 +31,6 @@ export class TabbedContentComponent {
     this.postgatheringService.getPost().subscribe((response) => {
       const jsonString = JSON.stringify(response);
       this.postList = JSON.parse(jsonString);
-      console.log(this.postList);
     });
 
   }
