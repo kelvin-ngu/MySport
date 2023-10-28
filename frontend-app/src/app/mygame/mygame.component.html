@@ -1,35 +1,23 @@
-<!-- <p>mygame works!</p> -->
-<!-- <style>
-    * {
-      border-radius: 0px;
-    }
-  
-    .feature {
-      margin-bottom: 30px;
-    }
-  
-    .hero {
-      padding: 100px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .hero h1 {
-      margin-bottom: 20px;
-    }
-  
-    .hero .lead {
-      margin-bottom: 30px;
-    }
-  
-    .hero .btn {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  </style> -->
+<style>
+  /* Define the fade-in and slide-up animation */
+  .fade-in-and-slide-up {
+    opacity: 0;
+    transform: translateY(50px); /* Initial position, you can adjust the value as needed */
+    animation: fadeInAndSlideUp 1s ease forwards;
+  }
 
-<div>
+  @keyframes fadeInAndSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Initial position */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Final position */
+    }
+  }
+</style>
+
+<div class="container-fluid mt-4 fade-in-and-slide-up">
     <app-journal-entry ></app-journal-entry>
 </div>

@@ -5,6 +5,29 @@
     cursor: pointer;
     color: inherit; /* Use the text color of the parent element */
   }
+
+  .unstyled-button:hover {
+    color: rgb(76, 158, 165);
+    text-decoration: underline;
+  }
+
+  /* Define the fade-in and slide-up animation */
+  .fade-in-and-slide-up {
+    opacity: 0;
+    transform: translateY(50px); /* Initial position, you can adjust the value as needed */
+    animation: fadeInAndSlideUp 1s ease forwards;
+  }
+
+  @keyframes fadeInAndSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Initial position */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Final position */
+    }
+  }
 </style>
 
 <header class="bg-dark text-white">
@@ -26,7 +49,7 @@
   </nav>
 </header>
 
-<div class="container mt-4">
+<div class="container-fluid mt-4 fade-in-and-slide-up">
     <div class="row">
       <div class="col">
         <h2>My Community</h2>
