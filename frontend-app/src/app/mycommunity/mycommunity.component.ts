@@ -2,6 +2,7 @@ import { Component, inject, resolveForwardRef } from '@angular/core';
 import { PostComponent } from '../post/post.component';
 import { PostDetail } from '../postdetail';
 import { PostgatheringService } from '../postgathering.service';
+import { Postlist } from '../postlist';
 
 @Component({
   selector: 'app-mycommunity',
@@ -13,13 +14,12 @@ import { PostgatheringService } from '../postgathering.service';
 
 export class MycommunityComponent {
   postgatheringService: PostgatheringService  = inject(PostgatheringService);
-  postDetail!: PostDetail;
+  postList!: Postlist;
   constructor(){
     this.postgatheringService.getPost().subscribe((response) => {
       const jsonString = JSON.stringify(response);
-      const jsonObject = JSON.parse(jsonString);
-      this.postDetail = jsonObject.post;
-      console.log(jsonObject)
+      this.postList = JSON.parse(jsonString);
+      console.log(this.postList);
     });
 
   }

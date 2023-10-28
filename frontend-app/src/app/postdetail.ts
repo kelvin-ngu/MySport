@@ -1,7 +1,7 @@
+import { Post } from "./post";
+
 export interface PostDetail {
-    id: number;
-    title: string;
-    description: string;
-    author: string;
-    created_at: Date;
+    comments: Comment[];
+    likes: number;
+    post: Post;
 }
