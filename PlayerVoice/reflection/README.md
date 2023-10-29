@@ -7,9 +7,6 @@ My Game APIs are listed below:
 - [Get Journals By List](#get-journal-list)
 - [Get Journal By ID](#get-journal-by-id)
 - [Create Journal](#create-journal)
-- [Get Reflections By List](#get-reflection-list)
-- [Get Reflection By ID](#get-reflection-by-id)
-- [Create Reflection](#create-reflection)  
 -----------------------
 
 ### Get Journal List
@@ -23,17 +20,13 @@ To get a list of all journals
 ```
     [
         {
-            id: uuid, (journal id)
-            player: {
-                id: uuid, (player id)
-                username: str,
-                birth_year: int,
-                club: str,
-                role: str
-            }
-            rating: int,
-            match_description: str,
-            comment: str,
+            id: uuid,
+            public: bool,
+            player: uuid,
+            title: str,
+            get_up: str,
+            feelings: str,
+            entry: str,
             created_at: datetime
         }
     ]
@@ -49,18 +42,36 @@ To get a specific journal using ID
 * Return:
 ```
     {
-        id: uuid, (journal id)
-        player: {
-            id: uuid, (player id)
-            username: str,
-            birth_year: int,
-            club: str,
-            role: str
-        }
-        rating: int,
-        match_description: str,
-        comment: str,
-        created_at: datetime
+        post: {
+            id: uuid, (journal id)
+            player: {
+                id: uuid, (player id)
+                username: str,
+                birth_year: int,
+                club: str,
+                role: str
+            }
+            rating: int,
+            match_description: str,
+            comment: str,
+            created_at: datetime
+        },
+        likes: int,
+        comments: [
+            {
+                id: uuid (comment id),
+                comment: str,
+                post: uuid (post id),
+                author: {
+                    id: uuid, (player id)
+                    username: str,
+                    birth_year: int,
+                    club: str,
+                    role: str
+                },
+                created_at: datetime
+            }
+        ]
     }
 ```
 
@@ -80,28 +91,8 @@ To create journal
 * Return:
 ```
     {
-        id: uuid, (journal id)
-        player: uuid, (player id)
-        rating: int,
-        match_description: str,
-        comment: str,
-        created_at: datetime
-    }
-```
-
-
-### Get Reflection List
-
-To get a list of all reflections of your own
-
-* Route: `reflection/`
-* Method: GET
-
-* Return:
-```
-    [
-        {
-            id: uuid, (reflection id)
+        post: {
+            id: uuid, (journal id)
             player: {
                 id: uuid, (player id)
                 username: str,
@@ -113,62 +104,22 @@ To get a list of all reflections of your own
             match_description: str,
             comment: str,
             created_at: datetime
-        }
-    ]
-```
-
-### Get Reflection By ID
-
-To get a specific journal using ID
-
-* Route: `reflection/{reflection_id}`
-* Method: GET
-
-* Return:
-```
-    {
-        id: uuid, (reflection id)
-        player: {
-            id: uuid, (player id)
-            username: str,
-            birth_year: int,
-            club: str,
-            role: str
-        }
-        rating: int,
-        match_description: str,
-        comment: str,
-        created_at: datetime
-    }
-```
-
-
-### Create Reflection
-
-To create reflection
-
-* Route: `reflection/`
-* Method: POST
-* Body (form data):
-    * player: uuid (player id)
-    * rating: int
-    * match_description: str
-    * comment: str
-
-* Return:
-```
-    {
-        id: uuid, (reflection id)
-        player: {
-            id: uuid, (player id)
-            username: str,
-            birth_year: int,
-            club: str,
-            role: str
-        }
-        rating: int,
-        match_description: str,
-        comment: str,
-        created_at: datetime
+        },
+        likes: int,
+        comments: [
+            {
+                id: uuid (comment id),
+                comment: str,
+                post: uuid (post id),
+                author: {
+                    id: uuid, (player id)
+                    username: str,
+                    birth_year: int,
+                    club: str,
+                    role: str
+                },
+                created_at: datetime
+            }
+        ]
     }
 ```

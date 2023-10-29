@@ -67,7 +67,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class CreateCommentSerializer(serializers.ModelSerializer):
     comment = serializers.CharField()
     post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())
-    author = PlayerSerializer()
+    author = serializers.PrimaryKeyRelatedField(queryset=Player.objects.all())
     created_at = serializers.DateTimeField()
 
     class Meta:
@@ -109,7 +109,6 @@ class CreatePostSerializer(serializers.ModelSerializer):
 
 class LikeSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField()
-    like = serializers.CharField()
     post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())
     author = PlayerSerializer()
     created_at = serializers.DateTimeField()
@@ -119,7 +118,6 @@ class LikeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CreateLikeSerializer(serializers.ModelSerializer):
-    like = serializers.CharField()
     post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())
     author = PlayerSerializer()
     created_at = serializers.DateTimeField()

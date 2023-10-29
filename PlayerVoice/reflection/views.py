@@ -15,7 +15,6 @@ def is_content_safe(content):
     threshold = 0.4
     return sia.polarity_scores(content)['neg'] < threshold
 
-
 class ReflectionViewSet(ModelViewSet):
     queryset = Reflection.objects.all()
     serializer_class = ReflectionSerializer
@@ -54,11 +53,13 @@ class JournalViewSet(ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def create(self, request, *args, **kwargs):
-        if not is_content_safe(request.data.get('title')) or not is_content_safe(request.data.get('description')):
-            return Response({
-                'error': 'This is a friendly community, please edit your content'
-            }, status=status.HTTP_400_BAD_REQUEST)
+        print(request.data)
+        # if not is_content_safe(request.data.get('title')) or not is_content_safe(request.data.get('entry')):
+        #     return Response({
+        #         'error': 'This is a friendly community, please edit your content'
+        #     }, status=status.HTTP_400_BAD_REQUEST)
         serializer = CreateJournalSerializer(data=request.data)
-        serializer.is_valid()
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
